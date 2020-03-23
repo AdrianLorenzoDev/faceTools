@@ -28,7 +28,7 @@ HeadWardrobeController headWardrobeController;
 
 void setup() {
   size(640, 480);
-  cam = new Capture(this, width, height, "FaceTime HD Camera (Built-in)");
+  cam = new Capture(this, width, height);
   cam.start(); 
 
   System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
@@ -60,8 +60,8 @@ void draw() {
     cam.read();
 
     img.copy(cam, 0, 0, cam.width, 
-      cam.height, 0, 0, i
-      mg.width, img.height);
+      cam.height, 0, 0,
+      img.width, img.height);
     img.copyTo();
 
     Mat grey = img.getGrey();
